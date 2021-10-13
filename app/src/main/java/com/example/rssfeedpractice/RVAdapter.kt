@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Build
 import android.text.Html
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -42,10 +41,12 @@ class RVAdapter(private val feeds: List<Feeds>,val context: Context): RecyclerVi
         holder.itemView.setOnClickListener{
             customAlert(title!!,summary!!)
         }
+        //if you click internet picture it will take you to the question page
         holder.binding.btInternet.setOnClickListener{
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(id.toString()))
             context.startActivity(browserIntent)
         }
+        //if you click author picture it will take you to the author profile
         holder.binding.person.setOnClickListener{
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             context.startActivity(browserIntent)
